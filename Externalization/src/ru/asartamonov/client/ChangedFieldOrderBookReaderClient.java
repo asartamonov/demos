@@ -3,10 +3,8 @@ package ru.asartamonov.client;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.ObjectInput;
 import java.io.ObjectInputStream;
 
-import ru.asartamonov.domain.Author;
 import ru.asartamonov.domain.Book;
 
 /*
@@ -35,7 +33,13 @@ public class ChangedFieldOrderBookReaderClient {
 		try {
 			fInputStream = new FileInputStream("obsoleteBook.ser"); // throws FileNotFoundException
 			oInputStream = new ObjectInputStream(fInputStream); // throws IOException
+			
 			failedToReadBook = (Book) oInputStream.readObject(); // throws ClassNotFoundException
+			
+			fInputStream.close();
+			oInputStream.close();
+			
+			System.out.println(failedToReadBook);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

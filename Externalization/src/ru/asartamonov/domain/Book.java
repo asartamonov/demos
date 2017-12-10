@@ -43,8 +43,8 @@ public class Book implements Externalizable {
 
 	@Override
 	public void writeExternal(ObjectOutput out) throws IOException {
-		out.writeObject(name);
 		out.writeObject(author);
+		out.writeObject(name);
 	}
 
 }
