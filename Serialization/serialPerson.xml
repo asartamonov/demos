@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<human attributeField="tallMan">
+    <atransientString>transient are serialized in XML, but not in oos writeObject</atransientString>
+    <name>Dave&lt;!--</name>
+    <friends>
+        <friend>
+            <name>Stewart</name>
+        </friend>
+        <friend>
+            <name>Charlie</name>
+        </friend>
+    </friends>
+</human>
