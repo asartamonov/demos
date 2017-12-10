@@ -14,33 +14,41 @@ import ru.asartamonov.domain.Book;
 public class SerDeserClient {
 	
 	public static void main(String[] args) {
-		Book book = new Book();
-		book.setAuthor(new Author("Alex Cook", LocalDate.of(1988, 10, 12)));
-		book.setName("How to make it right?");
+		Book bookSerialized = new Book();
+		bookSerialized.setAuthor(new Author("Alex Cook", LocalDate.of(1988, 10, 12)));
+		bookSerialized.setName("How to make it right?");
 
 		FileOutputStream fOutputStream;
 		ObjectOutputStream oOutputStream;
 
+		/* Plain writing author - serializable, book externalizable */
 		try {
 			fOutputStream = new FileOutputStream("book.ser");
 			oOutputStream = new ObjectOutputStream(fOutputStream);
-			oOutputStream.writeObject(book);
+			oOutputStream.writeObject(bookSerialized);
+			
 			oOutputStream.close();
 			fOutputStream.close();
-			System.out.println("Serialized book: " + book);
+
+			System.out.println("Serialized book: " + bookSerialized);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
+		
+		/* Plain reading author - serializable, book externalizable */
+		Book bookDeserialized;
+		
 		try {
 			FileInputStream fInputStream = new FileInputStream("book.ser"); // throws FileNotFoundException
 			ObjectInputStream oInputStream = new ObjectInputStream(fInputStream); // throws IOException
-			Book book2 = (Book) oInputStream.readObject(); // throws ClassNotFoundException
-			System.out.println("Deserialized book: " + book2);
+			bookDeserialized = (Book) oInputStream.readObject();  // throws ClassNotFoundException
+
 			oInputStream.close();
 			fInputStream.close();
+			
+			System.out.println("Deserialized book: " + bookDeserialized);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -50,3 +58,11 @@ public class SerDeserClient {
 		}
 	}
 }
+
+/*
+ * Output:
+ * 
+ * Serialized book: Book [name=How to make it right?, author=Author [born=1988-10-12, name=Alex Cook]]
+ * Deserialized book: Book [name=How to make it right?, author=Author [born=1988-10-12, name=Alex Cook]]
+ * 
+ * */

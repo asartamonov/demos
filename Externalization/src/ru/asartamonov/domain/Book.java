@@ -24,8 +24,8 @@ public class Book implements Externalizable {
 
 	@Override
 	public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
-		this.name = (String) in.readObject();
 		this.author = (Author) in.readObject();
+		this.name = (String) in.readObject();
 	}
 
 	public void setAuthor(Author author) {

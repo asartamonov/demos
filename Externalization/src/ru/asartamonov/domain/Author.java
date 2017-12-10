@@ -13,8 +13,8 @@ public class Author implements Serializable {
 	 * 
 	 * InvalidClassException - will be thrown in case of changes
 	 */
-//	private static final long serialVersionUID = -2022913685447852709L;
-	private static final long serialVersionUID = -2032913685447852709L;
+	private static final long serialVersionUID = -2022913685447852709L;
+	//private static final long serialVersionUID = -2032913685447852709L;
 
 	private LocalDate born;
 	
