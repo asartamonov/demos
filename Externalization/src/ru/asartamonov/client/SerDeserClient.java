@@ -14,7 +14,8 @@ import ru.asartamonov.domain.Book;
 public class SerDeserClient {
 	
 	public static void main(String[] args) {
-		Book bookSerialized = new Book();
+//		Book bookSerialized = new Book();/
+		Book bookSerialized = new Book(new Author("Alex Cook", LocalDate.of(1988, 10, 12)), "How to make it right?");
 		bookSerialized.setAuthor(new Author("Alex Cook", LocalDate.of(1988, 10, 12)));
 		bookSerialized.setName("How to make it right?");
 
