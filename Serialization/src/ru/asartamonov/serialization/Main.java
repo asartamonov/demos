@@ -10,16 +10,14 @@ import java.io.ObjectOutputStream;
 import java.util.Arrays;
 
 import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
 public class Main {
-    private static final String serPath = "/home/asartamonov/Documents/java/demos/Serialization/serialPerson.xml";
-    private static final String wrObjPath = "/home/asartamonov/Documents/java/demos/Serialization/swrObjPerson.j";
-//    private static final String serPath = "C:\\Users\\asartamonov\\Documents\\excercises-thinking\\Serialization\\serialPerson.xml";
-//    private static final String wrObjPath = "C:\\Users\\asartamonov\\Documents\\excercises-thinking\\Serialization\\swrObjPerson.j";
+    private static final String serPath = "serialPerson.xml";
+    private static final String wrObjPath = "swrObjPerson.j";
 
+    // --add-modules java.xml.bind to JVM args in case of running on JDK 9+ :/
     public static void main(String[] args) {
 
         File outFile = new File(serPath);
@@ -43,7 +41,7 @@ public class Main {
 
             jaxbMarshaller.marshal(serializedPerson, outFile);
             jaxbMarshaller.marshal(serializedPerson, System.out);
-        } catch (JAXBException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -55,7 +53,7 @@ public class Main {
 
             System.out.println("Unmarshalled from XML: " + deSerializedPerson);
             System.out.println("Same class in JAXB serialization? " + (deSerializedPerson.getClass() == new Person().getClass()));
-        } catch (JAXBException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
