@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Error</title>
+</head>
+<body>
+<img th:src="@{/john.gif}"/>
+<p></p>
+<a href="javascript:history.back()" th:text="#{error.link.text}"></a>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

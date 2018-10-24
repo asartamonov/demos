@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="footer"  th:fragment="footer">
+    <p th:text="#{footer.text}">a;sl;al</p>
+    <script type="text/javascript" src="webjars/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="webjars/js-cookie/2.0.2/js.cookie.js"></script>
+    <script type="text/javascript" th:src = "@{/js/main.js}"></script>
+</div>
+</body>
+</html>
